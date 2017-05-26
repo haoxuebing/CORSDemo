@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            text-align: center;
+        }
+
+        .div {
+            margin: 0 auto;
+            width: 400px;
+            height: 100px;
+        }
+    </style>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript">
+        function btnClick() {
+            $.ajax({
+                url: "http://localhost:20735/home/CorsApi",
+                success: function (msg) {
+                    alert(msg.data);
+                },
+                error: function () {
+                    alert("跨域请求失败！");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="div">
+        <h1>这里是Web1!</h1>
+        <br />
+        <input type="button" onclick="btnClick()" value="向Web2发起跨域请求" />
+    </div>
+</body>
+</html>
